@@ -1,17 +1,10 @@
 <component name="ArtifactManager">
-  <artifact type="exploded-war" name="strutsBasics:war exploded">
-    <output-path>$PROJECT_DIR$/target/strutsBasics-1.0-SNAPSHOT</output-path>
-    <properties id="maven-jee-properties">
-      <options>
-        <exploded>true</exploded>
-        <module>strutsBasics</module>
-        <packaging>war</packaging>
-      </options>
-    </properties>
+  <artifact type="exploded-war" name="Struts_Basics:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/Struts_Basics_war_exploded</output-path>
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
-          <element id="module-output" name="strutsBasics" />
+          <element id="module-output" name="Struts_Basics" />
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="Maven: org.apache.struts:struts2-core:2.5" />
@@ -29,10 +22,7 @@
           <element id="library" level="project" name="Maven: com.google.protobuf:protobuf-java:3.6.1" />
         </element>
       </element>
-      <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/target/strutsBasics-1.0-SNAPSHOT/META-INF/MANIFEST.MF" />
-      </element>
-      <element id="javaee-facet-resources" facet="strutsBasics/web/Web" />
+      <element id="javaee-facet-resources" facet="Struts_Basics/web/Web" />
     </root>
   </artifact>
 </component>
