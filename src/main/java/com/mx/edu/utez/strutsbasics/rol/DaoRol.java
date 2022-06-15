@@ -34,7 +34,7 @@ public class DaoRol {
         }
         return status;
     }
-    public List<BeanRol> findAll() throws SQLException {
+    public List<BeanRol> findAllRoles() throws SQLException {
         List<BeanRol> roles = new ArrayList<>();
         try{
             connection = ConnectionMySQL.getConnection();
@@ -96,29 +96,29 @@ public class DaoRol {
 
 
     public static void main(String[] args) throws SQLException {
-       BeanStatus status = new BeanStatus(1,"Activo");
+//       BeanStatus status = new BeanStatus(1,"Activo");
         DaoRol Daorol = new DaoRol();
-        BeanRol bean1 = new BeanRol("Administrador",status);
-        BeanRol bean2 = new BeanRol("Cliente",status);
-
-//        if (Daorol.createRol(bean2)){
-//                System.out.println("Exitoso");
+//        BeanRol bean1 = new BeanRol("Administrador",status);
+//        BeanRol bean2 = new BeanRol("Cliente",status);
+//
+////        if (Daorol.createRol(bean2)){
+////                System.out.println("Exitoso");
+////        }else {
+////            System.out.println("Error");
+////        }
+//
+//        System.out.println("actualizar.................");
+//
+//        BeanRol rolUpdate = new BeanRol();
+//        rolUpdate.setId(5);
+//        rolUpdate.setName("AngelActualizado");
+//        rolUpdate.setStatus(status);
+//        if (Daorol.updateRol(rolUpdate)){
+//            System.out.println("siu");
 //        }else {
-//            System.out.println("Error");
+//            System.out.println("nanais");
 //        }
-
-        System.out.println("actualizar.................");
-
-        BeanRol rolUpdate = new BeanRol();
-        rolUpdate.setId(5);
-        rolUpdate.setName("AngelActualizado");
-        rolUpdate.setStatus(status);
-        if (Daorol.updateRol(rolUpdate)){
-            System.out.println("siu");
-        }else {
-            System.out.println("nanais");
-        }
-        for (BeanRol rol : Daorol.findAll()){
+        for (BeanRol rol : Daorol.findAllRoles()){
             System.out.println("//datos//");
             System.out.println(rol.getId());
             System.out.println(rol.getName());

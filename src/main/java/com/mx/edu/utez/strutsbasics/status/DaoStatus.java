@@ -15,18 +15,20 @@ public class DaoStatus {
     ResultSet rs;
     PreparedStatement pstm;
 
-    public List<BeanStatus> findAllStatus() throws SQLException {
+    public List<BeanStatus> findAll() throws SQLException {
         List<BeanStatus> listStatus = new ArrayList<>();
         try{
             connection = ConnectionMySQL.getConnection();
-            String script = "Select status.id, status.name from status";
+            String script = "Select status.id, status.name from status;";
             pstm = connection.prepareStatement(script);
+            rs = pstm.executeQuery();
             while (rs.next()){
                 BeanStatus status = new BeanStatus();
                 status.setId(rs.getInt("id"));
                 status.setName(rs.getString("name"));
                 listStatus.add(status);
             }
+            return listStatus;
         }catch (Exception ex){
             ex.printStackTrace();
         }finally {
@@ -50,7 +52,7 @@ public class DaoStatus {
 
     public static void main(String[] args) throws SQLException {
         DaoStatus dao = new DaoStatus();
-        for (BeanStatus status: dao.findAllStatus()){
+        for (BeanStatus status: dao.findAll()){
             System.out.println("Datos OG");
             System.out.println(status.getId());
             System.out.println(status.getName());
