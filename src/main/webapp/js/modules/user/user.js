@@ -8,10 +8,13 @@ app.controller('user', ['$scope', '$http', '$window', function ($scope, $http){
     $scope.findAllStatus= () => {
         $http({
             method: 'POST',
-            url: 'Struts_Basics/findAllStatus'
+            url: 'struts_basics/findAllStatus'
             }
         ).then(function (response){
-            console.log(response)
+            const {data:{listStatus}} = response;
+            $scope.arrayStatus = listStatus
+            console.log($scope.arrayStatus)
+
         })
     }
 
