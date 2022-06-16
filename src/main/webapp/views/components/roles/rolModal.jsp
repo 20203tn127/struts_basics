@@ -89,11 +89,11 @@
                     <div class="col-12">
                         <div class="form-group">
                             <label>Nombre:<span class="text-danger"></span></label>
-                            <input class="form-control" type="text" ng-model="updateRolCopy.name" name="detailsName" required min="2" maxlength="45"/>
+                            <input class="form-control" type="text" ng-model="updateCopy.name" name="name" />
                         </div>
                         <div class="form-group" ng-init="findAllStatus()">
                             <label>Estado:<span class="text-danger"></span></label>
-                            <select class="form-control" ng-model="updateRolCopy.status" name="detailsStatus" ng-options="status.name for status in arrayStatus track by status.id"  required>
+                            <select class="form-control" ng-options="status.name for status in arrayStatus track by status.id"  ng-model="updateCopy.status" name="status" required>
                             </select>
                         </div>
                     </div>

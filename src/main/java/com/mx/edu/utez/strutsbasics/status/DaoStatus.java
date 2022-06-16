@@ -24,8 +24,8 @@ public class DaoStatus {
             rs = pstm.executeQuery();
             while (rs.next()){
                 BeanStatus status = new BeanStatus();
-                status.setId(rs.getInt("id"));
-                status.setName(rs.getString("name"));
+                status.setId(rs.getInt(1));
+                status.setName(rs.getString(2));
                 listStatus.add(status);
             }
             return listStatus;

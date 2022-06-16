@@ -47,10 +47,10 @@ public class DaoRol {
             rs = pstm.executeQuery();
             while (rs.next()){
                 roles.add(new BeanRol(
-                        rs.getInt("id"),
+                        rs.getInt("rol.id"),
                         rs.getString("name"),
                         new BeanStatus(
-                                rs.getInt("id"),
+                                rs.getInt("id_status"),
                                 rs.getString("name_status")
                         )
                 ));

@@ -5,6 +5,7 @@ app.controller('user', ['$scope', '$http', '$window', function ($scope, $http) {
     $scope.arrayStatus = []
     $scope.arrayRoles = []
     $scope.rol = {}
+    $scope.updateCopy = {}
 
     $scope.findAllStatus = () => {
         $http({
@@ -12,6 +13,7 @@ app.controller('user', ['$scope', '$http', '$window', function ($scope, $http) {
                 url: 'struts_basics/findAllStatus'
             }
         ).then(function (response) {
+            console.log($scope.arrayStatus)
             const {data: {listStatus}} = response;
             $scope.arrayStatus = listStatus
 
@@ -24,6 +26,7 @@ app.controller('user', ['$scope', '$http', '$window', function ($scope, $http) {
                 url: 'struts_basics/findAllRoles'
             }
         ).then(function (response) {
+            console.log(response.data)
             const {data: {listRoles}} = response;
             $scope.arrayRoles = listRoles
 
@@ -48,17 +51,21 @@ app.controller('user', ['$scope', '$http', '$window', function ($scope, $http) {
     }
 
     $scope.updateRolModal = (rol) =>{
-        $scope.updateRolCopy = angular.copy(rol)
+
+        console.log("olaxd", $scope.updateCopy)
         $('#UpdateRolModal').modal('toggle')
+
     }
 
     $scope.updateRol = () => {
-        console.log($scope.updateRolCopy)
+        console.log($scope.arrayStatus)
+        console.log($scope.updateCopy)
         $http({
             method: 'POST',
             url: 'struts_basics/updateRol',
-            data: `data=${angular.toJson($scope.updateRolCopy)}`
+            data: `data=${angular.toJson($scope.updateCopy)}`
         }).then((response) => {
+
             $scope.findAllRoles()
             $('#UpdateRolModal').modal('hide')
         })
