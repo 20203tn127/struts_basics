@@ -19,14 +19,17 @@ app.controller('user', ['$scope', '$http', '$window', function ($scope, $http){
         })
     }
 
-    $scope.createRol= () => {
+    $scope.createRol = ()=>{
         $http({
             method: 'POST',
-            url: 'struts_basics/createRolex',
-            data: $scope.rol
-        }).then((response) =>{
+            url: 'struts_basics/createRol',
+            data: `data=${angular.toJson($scope.rol)}`
+        }).then( (response) =>{
             console.log(response)
         })
     }
+
+
+
 
 }])

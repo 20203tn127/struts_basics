@@ -20,7 +20,7 @@
             <result type="json"/>
         </action>
 
-        <action name="createRol" method="createRol" class="com.mx.edu.utez.strutsbasics.rol.ActionRol">
+        <action name="createRolex" method="createRol" class="com.mx.edu.utez.strutsbasics.rol.ActionRol">
             <result type="json"/>
         </action>
 

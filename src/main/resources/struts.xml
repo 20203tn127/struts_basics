@@ -24,6 +24,10 @@
             <result type="json"/>
         </action>
 
+        <action name="updateRol" method="updateRol" class="com.mx.edu.utez.strutsbasics.rol.ActionRol">
+            <result type="json"/>
+        </action>
+
 
 
     </package>

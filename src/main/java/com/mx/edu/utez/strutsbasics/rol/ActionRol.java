@@ -20,26 +20,25 @@ public class ActionRol extends ActionSupport {
 
     public String createRol() throws SQLException {
         rol = new Gson().fromJson(data,BeanRol.class);
+        System.out.println(rol);
         if (new DaoRol().createRol(rol)){
-             setMessage("Registro successful");
+            setMessage("success");
         }else{
-            setMessage("Fail");
+            setMessage("fail");
         }
         return SUCCESS;
     }
 
-    public static void main(String[] args) {
-
+    public String updateRol() throws SQLException{
+        rol = new Gson().fromJson(data,BeanRol.class);
+        if (new DaoRol().updateRol(rol)){
+            setMessage("Success Update");
+        }else {
+            setMessage("Error update");
+        }
+        return SUCCESS;
     }
 
-
-    public BeanRol getRol() {
-        return rol;
-    }
-
-    public void setRol(BeanRol rol) {
-        this.rol = rol;
-    }
 
     public String getMessage() {
         return message;
@@ -64,4 +63,13 @@ public class ActionRol extends ActionSupport {
     public void setData(String data) {
         this.data = data;
     }
+
+    public BeanRol getRol() {
+        return rol;
+    }
+
+    public void setRol(BeanRol rol) {
+        this.rol = rol;
+    }
+
 }

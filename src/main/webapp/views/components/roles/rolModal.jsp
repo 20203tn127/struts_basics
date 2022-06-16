@@ -27,7 +27,7 @@
                             <div class="form-group" ng-init="findAllStatus()">
                                 <label>Estado:<span class="text-danger"></span></label>
                                 <select name="" id="" class="form-control" ng-model="rol.status" name="status" ng-options="status.name for status in arrayStatus track by status.id" required>
-                                    <option value="">Seleccione</option>
+                                    <option value="" disabled>Seleccione</option>
                                 </select>
                             </div>
                         </div>
@@ -42,23 +42,66 @@
     </div>
 </div>
 
-
-
 <%--modalDetalles--%>
 <div class="modal fade" id="detailsRolModal" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel1">Details Rol</h5>
+                <h5 class="modal-title" id="exampleModalLabel1">Details Rol g my G's</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                ...
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label>Nombre:<span class="text-danger"></span></label>
+                            <input class="form-control" type="text" ng-model="detailRolCopy.name" name="detailsName" disabled/>
+                        </div>
+                        <div class="form-group" ng-init="findAllStatus()">
+                            <label>Estado:<span class="text-danger"></span></label>
+                            <select name=""  class="form-control" ng-model="detailRolCopy.status" name="detailsStatus" ng-options="status.name for status in arrayStatus track by status.name" disabled>
+                            </select>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-outline-warning" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%--UpdateRolModal--%>
+<div class="modal fade" id="UpdateRolModal" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel2">Update Rols</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label>Nombre:<span class="text-danger"></span></label>
+                            <input class="form-control" type="text" ng-model="updateRolCopy.name" name="detailsName" required min="2" maxlength="45"/>
+                        </div>
+                        <div class="form-group" ng-init="findAllStatus()">
+                            <label>Estado:<span class="text-danger"></span></label>
+                            <select class="form-control" ng-model="updateRolCopy.status" name="detailsStatus" ng-options="status.name for status in arrayStatus track by status.id"  required>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-warning" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-outline-success" ng-click="updateRol()">Guardar</button>
             </div>
         </div>
     </div>

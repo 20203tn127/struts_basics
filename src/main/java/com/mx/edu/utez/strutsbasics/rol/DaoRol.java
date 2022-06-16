@@ -17,6 +17,9 @@ public class DaoRol {
     PreparedStatement pstm;
     ResultSet rs;
     public boolean createRol(BeanRol rol) throws SQLException {
+        System.out.println(rol.toString());
+        System.out.println(rol.getName());
+        System.out.println(rol.getStatus().getName());
         boolean status = false;
         try{
             connection = ConnectionMySQL.getConnection();
@@ -25,7 +28,7 @@ public class DaoRol {
             pstm.setString(1,rol.getName());
             pstm.setInt(2,rol.getStatus().getId());
             status = pstm.executeUpdate() == 1;
-
+            return status;
         }catch (SQLException e){
             e.getErrorCode();
             e.printStackTrace();
@@ -96,16 +99,16 @@ public class DaoRol {
 
 
     public static void main(String[] args) throws SQLException {
-//       BeanStatus status = new BeanStatus(1,"Activo");
+       BeanStatus status = new BeanStatus(1,"Activo");
         DaoRol Daorol = new DaoRol();
-//        BeanRol bean1 = new BeanRol("Administrador",status);
-//        BeanRol bean2 = new BeanRol("Cliente",status);
-//
-////        if (Daorol.createRol(bean2)){
-////                System.out.println("Exitoso");
-////        }else {
-////            System.out.println("Error");
-////        }
+      BeanRol bean1 = new BeanRol("Administrador",status);
+       BeanRol bean2 = new BeanRol("Cliente",status);
+
+        if (Daorol.createRol(bean1)){
+                System.out.println("Exitoso");
+        }else {
+            System.out.println("Error");
+        }
 //
 //        System.out.println("actualizar.................");
 //
